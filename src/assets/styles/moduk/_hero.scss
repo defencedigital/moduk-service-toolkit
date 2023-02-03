@@ -1,0 +1,23 @@
+/* -------------------------------- 
+
+Title: Hero
+
+-------------------------------- */
+
+.moduk-hero {
+  background-color: $govuk-brand-colour;
+  margin-top: -1px; // Sits over phase banner 1px border
+
+  .govuk-heading-xl,
+  .govuk-body-l {
+    color: govuk-colour("white");
+  }
+
+}
+
+
+
+.moduk-standards {
+  background-color: govuk-colour("light-grey");
+  border-bottom: 1px solid $govuk-border-colour;
+}

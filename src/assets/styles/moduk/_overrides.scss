@@ -1,0 +1,26 @@
+/* -------------------------------- 
+
+Title: Overrides
+
+-------------------------------- */
+
+.govuk-footer--has-feedback {
+  border-top: 10px solid $govuk-brand-colour;
+}
+
+
+.govuk-footer__meta {
+  justify-content: flex-start;
+}
+
+
+// Change colour of phase banner tag
+.govuk-tag {
+  background-color: $govuk-brand-colour;
+}
+
+
+// Change colour of inset text callout
+.govuk-inset-text {
+  border-color: $govuk-brand-colour;
+}

@@ -1,0 +1,25 @@
+/* -------------------------------- 
+
+Title: Site map
+
+-------------------------------- */
+
+.moduk-sitemap {
+
+  > ul:not([class]) {
+    margin-bottom: 0;
+    padding-left: 0;
+
+    > li:not([class]) {
+      font-weight: bold;
+      list-style: none;
+    }
+
+  }
+
+  > ul:not([class]) ul:not([class]) {
+    margin-bottom: 20px;
+    margin-left: 15px;
+  }
+
+}

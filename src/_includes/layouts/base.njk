@@ -1,0 +1,178 @@
+{%- from "system/component.njk" import component -%}
+{%- from "system/modukcomponent.njk" import modukcomponent -%}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% if title %}{{ title }} - {{ meta.serviceName }}{% else %}{{ meta.serviceName }}{% endif %}</title>
+
+    {% if meta.env != 'production' %}
+    <meta name="robots" content="none">
+    {% endif %}
+
+    {# Search Engine #}
+    <meta name="description" content="{% if description %}{{ description }}{% else %}All you need to design, build and run great digital services in Defence.{% endif %}">
+
+    {# Theme colour #}
+    <meta name="theme-color" content="#4D2942">
+
+    {# Windows tiles #}
+    <meta name="msapplication-TileColor" content="#4D2942">
+    <meta name="msapplication-TileImage" content="{{ '/assets/images/tile-310x150.png' | url }}">
+    <meta name="msapplication-square70x70logo" content="{{ '/assets/images/tile-70x70.png' | url }}">
+    <meta name="msapplication-square150x150logo" content="{{ '/assets/images/tile-150x150.png' | url }}">
+    <meta name="msapplication-wide310x150logo" content="{{ '/assets/images/tile-310x150.png' | url }}">
+    <meta name="msapplication-square310x310logo" content="{{ '/assets/images/tile-310x310.png' | url }}">
+
+    {# iOS #}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="{{ meta.serviceName }}">
+
+    {# Apple touch icon #}
+    <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | url }}">
+
+    {# Mask icon #}
+    <link rel="mask-icon" href="{{ '/assets/images/mask-icon.svg' | url }}" color="#4D2942">
+
+    {# Fav icon #}
+    <link rel="icon" href="{{ '/assets/images/favicon.png' | url }}">
+
+    {# Opengraph #}
+    <meta property="og:image" content="{{ '/assets/images/opengraph.png' | url }}">
+
+    {# Stylesheet #}
+    <link rel="stylesheet" href="{{ '/assets/styles/main.css' | url }}">
+
+    {# Google Analytics and MS Clarity #}
+    {% if (meta.env == 'production') %}
+    
+      {% set googleID  = 'G-PZYS17NHKV' %}
+      {% set clarityID = 'foevvcqowi' %}
+
+      <script>
+        sessionStorage.setItem('clarityID','{{ clarityID }}');
+        sessionStorage.setItem('googleID','{{ googleID }}');
+        const cID=sessionStorage.getItem('clarityID');
+        const gID=sessionStorage.getItem('googleID');
+      </script>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ googleID }}"></script>
+
+      <script src="{{ '/assets/scripts/cookie-manager-1.0.0.min.js' | url }}"></script>
+      <script src="{{ '/assets/scripts/cookies.js' | url }}"></script>
+
+    {% endif %}
+
+  </head>
+
+  <body>
+
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    {% if (meta.env == 'production') %}
+    <form method="POST">
+
+      {% set html %}
+        <p class="govuk-body">We’d like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+      {% endset %}
+    
+      {% set acceptHtml %}
+        <p class="govuk-body">You’ve accepted analytics cookies. You can <a class="govuk-link govuk-link--no-visited-state" href="{{ '/cookies/' | url }}">change your cookie settings</a> at any time.</p>
+      {% endset %}
+
+      {% set rejectedHtml %}
+        <p class="govuk-body">You’ve rejected analytics cookies. You can <a class="govuk-link govuk-link--no-visited-state" href="{{ '/cookies/' | url }}">change your cookie settings</a> at any time.</p>
+      {% endset %}
+
+      {{ component('cookie-banner', {
+        hidden: true,
+        classes: 'js-cookie-banner',
+        ariaLabel: 'Cookies on the Defence Service Manual',
+        messages: [
+          {
+            classes: 'js-cookie-banner-messsage',
+            headingText: 'Cookies on the Defence Service Manual',
+            html: html,
+            actions: [
+              {
+                classes: 'js-cookie-banner-accept',
+                text: 'Accept analytics cookies',
+                type: 'submit',
+                name: 'cookies',
+                value: 'accept'
+              },
+              {
+                classes: 'js-cookie-banner-reject',
+                text: 'Reject analytics cookies',
+                type: 'submit',
+                name: 'cookies',
+                value: 'reject'
+              },
+              {
+                classes: 'govuk-link--no-visited-state',
+                text: 'View cookies',
+                href: '/cookies/' | url
+              }
+            ]
+          },
+          {
+            classes: 'js-cookie-banner-confirmation-accept',
+            html: acceptHtml,
+            actions: [
+              {
+                classes: 'js-cookie-banner-hide',
+                text: 'Hide cookie message',
+                href: '#0',
+                type: 'button'
+              }
+            ],
+            hidden: true,
+            attributes: {
+              role: 'alert'
+            }
+          },
+          {
+            classes: 'js-cookie-banner-confirmation-reject',
+            html: rejectedHtml,
+            actions: [
+              {
+                classes: 'js-cookie-banner-hide',
+                text: 'Hide cookie message',
+                href: '#0',
+                type: 'button'
+              }
+            ],
+            hidden: true,
+            attributes: {
+              role: 'alert'
+            }
+          }
+        ]
+      }) }}
+
+    </form>
+    {% endif %}
+
+    {% include "header.njk" ignore missing %}
+    {% include "phase-banner.njk" ignore missing %}
+
+    <main class="content" id="content">
+      {% block body %}{% endblock %}
+    </main>
+
+    {% include "footer.njk" ignore missing %}
+
+    <script src="{{ '/assets/scripts/govuk.js' | url }}"></script>
+    <script>window.GOVUKFrontend.initAll()</script>
+
+    <script src="{{ '/assets/scripts/scripts.js' | url }}"></script>
+
+    {% block pageScripts %}{% endblock %}
+
+  </body>
+</html>

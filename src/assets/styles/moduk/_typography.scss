@@ -1,0 +1,69 @@
+/* -------------------------------- 
+
+Title: Typography
+
+-------------------------------- */
+
+.moduk-prose {
+
+  h1:not([class]) {
+    @extend .govuk-heading-xl;
+  }
+
+  h2:not([class]) {
+    @extend .govuk-heading-l;
+  }
+
+  h3:not([class]) {
+    @extend .govuk-heading-m;
+  }
+
+  h4:not([class]) {
+    @extend .govuk-heading-s;
+  }
+
+  p:not([class]) {
+    @extend .govuk-body;
+  }
+
+  ul:not([class]) {
+    @extend .govuk-list;
+    @extend .govuk-list--bullet;
+  }
+
+  ol:not([class]) {
+    @extend .govuk-list;
+    @extend .govuk-list--number;
+  }
+
+  ul:not([class]) ul,
+  ul:not([class]) ul ul {
+    @extend .govuk-list;
+    @extend .govuk-list--bullet;
+    margin-bottom: 0; // Reset margin bottom if nested ul’s
+  }
+
+  a:not([class]) {
+    @extend .govuk-link;
+    @extend .govuk-link--no-visited-state;
+  }
+
+  // Exceptions to the rules
+  ol.govuk-list--spaced {
+    @extend .govuk-list;
+    @extend .govuk-list--number;
+    @extend .govuk-list--spaced;
+  }
+
+  ul.govuk-list--spaced {
+    @extend .govuk-list;
+    @extend .govuk-list--bullet;
+    @extend .govuk-list--spaced;
+  }
+
+}
+
+
+.govuk-body--secondary {
+  color: $govuk-secondary-text-colour;
+}

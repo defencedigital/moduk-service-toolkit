@@ -1,0 +1,14 @@
+/* -------------------------------- 
+
+Title: Code Snippet
+Description: A block of preformatted text, containing computer code
+
+-------------------------------- */
+
+code {
+  @extend .govuk-body-s;
+  background-color: govuk-colour("light-grey");
+  display: inline-block;
+  font-family: monospace;
+  padding: 5px 10px;
+}

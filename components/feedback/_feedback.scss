@@ -1,0 +1,207 @@
+/* -------------------------------- 
+
+Title: Feedback
+
+-------------------------------- */
+
+.moduk-feedback {
+  background: govuk-colour("white");
+  margin-top: govuk-spacing(6);
+
+  @include govuk-media-query($from: desktop) {
+    margin-top: govuk-spacing(9);
+  }
+
+  @include govuk-media-query($until: tablet) {
+    margin-right: govuk-spacing(-3);
+    margin-left: govuk-spacing(-3);
+  }
+
+  @include govuk-media-query($from: tablet, $until: desktop) {
+    margin-right: govuk-spacing(-6);
+    margin-left: govuk-spacing(-6);
+  }
+
+  // Scoped to the feedback component temporarily
+  [hidden] {
+    display: none !important;
+  }
+
+}
+
+.moduk-feedback__prompt {
+  background-color: govuk-colour("light-grey");
+  color: govuk-colour("black");
+  border-top: 1px solid $govuk-border-colour;
+  outline: 0;
+}
+
+.moduk-feedback__prompt-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 govuk-spacing(3);
+
+  @include govuk-media-query($from: tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+}
+
+.moduk-feedback__prompt-questions {
+  text-align: left;
+  padding: govuk-spacing(4) 0;
+
+  @include govuk-media-query($from: tablet) {
+    margin: 0 govuk-spacing(3);
+  }
+
+}
+
+.moduk-feedback__prompt-question-answer {
+  display: flex;
+  align-items: center;
+
+  @include govuk-media-query($until: mobile) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+}
+
+.moduk-feedback__prompt-success {
+  padding: govuk-spacing(4) 0;
+
+  @include govuk-media-query($from: tablet) {
+    padding: govuk-spacing(4) govuk-spacing(3);
+  }
+
+}
+
+.moduk-feedback__prompt-question, .moduk-feedback__prompt-success {
+  @include govuk-font(19, $weight: bold);
+
+  @include govuk-media-query($from: tablet) {
+    @include govuk-font(16, $weight: bold);
+  }
+
+}
+
+.moduk-feedback__prompt-question {
+  margin: 0;
+  padding-bottom: govuk-spacing(2);
+
+  &:focus {
+    outline: 0;
+  }
+
+  @include govuk-media-query($from: mobile) {
+    padding-bottom: 0;
+    margin-right: govuk-spacing(2);
+  }
+
+}
+
+.moduk-feedback__prompt-link {
+  @include govuk-font(19);
+  background: transparent;
+  color: govuk-colour("black");
+  box-shadow: 0 3px 0 govuk-colour("black");
+  border: 1px govuk-colour("black") solid;
+  margin-bottom: 0;
+  width: 100%;
+
+  &:hover {
+    // backup style for browsers that don't support rgba
+    background: govuk-colour("mid-grey");
+    background: rgba(govuk-colour("black"), .2);
+    color: govuk-colour("black");
+  }
+
+  @include govuk-media-query($from: tablet) {
+    @include govuk-font(16);
+  }
+
+  &:focus,
+  &:focus:not(:active):not(:hover) {
+    background: govuk-colour("yellow");
+    border-color: govuk-colour("black");
+    box-shadow: 0 5px  0 govuk-colour("black");
+  }
+
+  &:active {
+    color: govuk-colour("black");
+  }
+
+  &:hover {
+    background: govuk-colour("mid-grey");
+    color: govuk-colour("black");
+  }
+
+  // &:active:focus:not(:hover) {
+  //   background: govuk-colour("yellow");
+  // }
+
+}
+
+.moduk-feedback__prompt-link {
+  position: relative;
+
+  &:focus:not(:active):not(:hover) {
+    border-color: govuk-colour("black");
+  }
+
+  &:focus,
+  &:active {
+    color: $govuk-focus-text-colour;
+  }
+
+}
+
+.moduk-feedback__prompt-link:link, 
+.moduk-feedback__prompt-link:visited {
+  color: govuk-colour("black");
+
+  &:focus,
+  &:active {
+    color: $govuk-focus-text-colour;
+  }
+}
+
+.moduk-feedback__option-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.moduk-feedback__option-list-item {
+  &:last-child {
+    margin-left: govuk-spacing(2);
+  }
+}
+
+.moduk-feedback__option-list-item 
+.moduk-feedback__prompt-link {
+  min-width: 100px;
+  @include govuk-media-query($until: desktop) {
+    min-width: 80px;
+  }
+}
+
+.moduk-feedback__form {
+  padding: govuk-spacing(3) 0;
+  border-top: 1px solid $govuk-border-colour;
+
+  @include govuk-media-query($from: tablet) {
+    padding: govuk-spacing(6) 0;
+  }
+
+}
+
+.moduk-feedback__close {
+  @include govuk-media-query($until: tablet) {
+    margin: govuk-spacing(4) 0 0 0;
+  }
+}

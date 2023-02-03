@@ -1,0 +1,226 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+
+<div class="govuk-width-container">
+
+  <div class="govuk-breadcrumbs">
+
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item"><a class="govuk-breadcrumbs__link" href="{{ '/' | url }}">Home</a></li>
+    </ol>
+  
+  </div>
+
+</div>
+
+<div class="govuk-width-container">
+
+  <div class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+
+        {% set html %}
+          <h3 class="govuk-notification-banner__heading">Your cookie settings were saved</h3>
+          <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="mailto:service-manual@digital.mod.uk">service-manual@digital.mod.uk</a> if you think there’s a problem.</p>
+        {% endset %}
+
+        {{ component('notification-banner', {
+          html: html,
+          type: 'success',
+          attributes: {
+            hidden: true
+          }
+        }) }}
+
+        <div class="moduk-prose">
+
+          <h1>Cookies</h1>
+
+          <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>
+
+          <p>We use cookies to make the Defence Service Toolkit work and collect information about how you use our service.</p>
+
+          <h2>Essential cookies</h2>
+
+          <p>Essential cookies keep your information secure while you use the Defence Service Toolkit. We do not need to ask permission to use them.</p>
+
+          {{ component('table', {
+            caption: 'Essential cookies',
+            captionClasses: 'govuk-table__caption--m govuk-visually-hidden',
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: 'Name'
+              },
+              {
+                text: 'Purpose'
+              },
+              {
+                text: 'Expires'
+              }
+            ],
+            rows: [
+              [
+                {
+                  classes: 'govuk-!-font-weight-regular',
+                  text: 'cookies_policy'
+                },
+                {
+                  text: 'Saves your cookie consent settings'
+                },
+                {
+                  text: '1 year'
+                }
+              ]
+            ]
+          }) }}
+
+          <h2>Analytics cookies (optional)</h2>
+
+          <p>With your permission, we use Google Analytics and MS Clarity to collect data about how you use the Defence Service Toolkit. This information helps us to improve our service.</p>
+
+          <p>Google Analytics and MS Clarity are not allowed to use or share our analytics data with anyone. They store anonymised information and screen recordings on:</p>
+
+          <ul>
+            <li>the pages you visit on the Defence Service Toolkit and how long you spend on them</li>
+            <li>interactions like mouse movements, clicks and scrolling</li>
+            <li>any errors you see while using the Defence Service Toolkit</li>
+          </ul>
+
+          {{ component('table', {
+            caption: 'Analytics cookies',
+            captionClasses: 'govuk-table__caption--m govuk-visually-hidden',
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: 'Name'
+              },
+              {
+                text: 'Purpose'
+              },
+              {
+                text: 'Expires'
+              }
+            ],
+            rows: [
+              [
+                {
+                  classes: 'govuk-!-font-weight-regular',
+                  text: '_ga'
+                },
+                {
+                  text: 'Check if you’ve visited the Defence Service Toolkit before. This helps us count how many people visit our site.'
+                },
+                {
+                  text: '2 years'
+                }
+              ],
+              [
+                {
+                  classes: 'govuk-!-font-weight-regular',
+                  text: '_gid'
+                },
+                {
+                  text: 'Check if you’ve visited the Defence Service Toolkit before. This helps us count how many people visit our site.'
+                },
+                {
+                  text: '24 hours'
+                }
+              ],
+              [
+                {
+                  classes: 'govuk-!-font-weight-regular',
+                  text: '_clck'
+                },
+                {
+                  text: 'Persists the MS Clarity User ID and preferences, unique to that site, on the browser. This helps us check if you have visited the site before.'
+                },
+                {
+                  text: '1 year'
+                }
+              ],
+              [
+                {
+                  classes: 'govuk-!-font-weight-regular',
+                  text: '_clsk'
+                },
+                {
+                  text: 'Connects multiple page views by a user into a single MS Clarity session recording. This helps us understand how you use the site.'
+                },
+                {
+                  text: 'When you close your browser'
+                }
+              ],
+              [
+                {
+                  classes: 'govuk-!-font-weight-regular',
+                  text: 'CLID'
+                },
+                {
+                  text: 'Identifies the first-time Clarity saw a user on any site using Clarity. This checks if you have used Clarity before.'
+                },
+                {
+                  text: '1 year'
+                }
+              ],
+              [
+                {
+                  classes: 'govuk-!-font-weight-regular',
+                  text: 'MUID'
+                },
+                {
+                  text: 'Identifies unique web browsers visiting Microsoft sites. This helps with things like advertising and site analytics.'
+                },
+                {
+                  text: '2 years'
+                }
+              ]
+            ]
+          }) }}
+
+          <form class="cookie-preferences-form">
+
+            {{ component('radios', {
+              idPrefix: 'analytics',
+              name: 'analytics',
+              fieldset: {
+                legend: {
+                  classes: 'govuk-fieldset__legend--s',
+                  text: 'Do you want to accept analytics cookies?'
+                }
+              },
+              items: [
+                {
+                  value: 'on',
+                  html: 'Yes<span class="govuk-visually-hidden">I want to accept analytics cookies</span>',
+                  id: 'analytics-on',
+                  checked: true
+                },
+                {
+                  value: 'off',
+                  id: 'analytics-off',
+                  html: 'No<span class="govuk-visually-hidden">I do not want to accept analytics cookies</span>'
+                }
+              ]
+            }) }}
+
+            {{ component('button', {
+              text: 'Save cookie settings'
+            }) }}
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

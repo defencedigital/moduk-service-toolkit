@@ -1,0 +1,14 @@
+{% if meta.env == 'production' %}
+  {% set tag = 'Beta' %}
+{% else %}
+  {% set tag = 'Development' %}
+{% endif %}
+
+<div class="govuk-width-container">
+  {{ component('phase-banner', {
+    tag: {
+      text: tag
+    },
+    html: 'This is a new service. If you have questions or suggestions, <a class="govuk-link govuk-link govuk-link--no-visited-state" href="' + '#0' | url + '">send us your feedback</a>.'
+  }) }}
+</div>

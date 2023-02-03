@@ -1,0 +1,42 @@
+{
+  "name": "moduk-service-toolkit",
+  "version": "1.0.3",
+  "description": "",
+  "engines": {
+    "node": "~16.17.1",
+    "npm": "~8.15.0"
+  },
+  "scripts": {
+    "build": "gulp build & npx @11ty/eleventy",
+    "dev": "gulp dev & npx @11ty/eleventy --serve",
+    "prod": "gulp clean && cross-env ELEVENTY_ENV=production npx eleventy && cross-env ELEVENTY_ENV=production gulp prod"
+  },
+  "author": "Trevor Saint <hello@trevorsaint.uk> (https://trevorsaint.uk)",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@hmcts/cookie-manager": "^1.0.0",
+    "@thedigitalman/eleventy-plugin-toc-a11y": "^2.1.0",
+    "autoprefixer": "^10.4.8",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.1",
+    "govuk-frontend": "^4.5.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.5",
+    "markdown-it-attrs": "^4.1.4",
+    "markdown-it-container": "^3.0.0",
+    "node-sass": "^7.0.1",
+    "nunjucks": "^3.2.3",
+    "luxon": "^3.0.4"
+  }
+}

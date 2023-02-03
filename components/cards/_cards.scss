@@ -1,0 +1,132 @@
+/* -------------------------------- 
+
+Title: Cards
+
+-------------------------------- */
+
+
+// Hide border top on first row of cards
+.moduk-cards--no-top-border {
+  overflow: hidden;
+
+  .moduk-cards__list-item {
+    margin-top: -1px;
+  }
+
+}
+
+
+.moduk-cards__heading {
+
+  @include govuk-media-query($from: "desktop") {
+    margin: 0 0 govuk-spacing(3) 0;
+  }
+
+}
+
+
+.moduk-cards__content {
+  margin-bottom: -30px;
+}
+
+
+.moduk-cards__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 govuk-spacing(-3);
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+
+  @include govuk-media-query($from: "tablet") {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include govuk-media-query($from: "desktop") {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 50%;
+
+    // Reset the width for browsers that support CSS grid
+    @supports (display: grid) {
+      width: initial;
+    }
+
+  }
+
+}
+
+
+.moduk-cards__list--two-column-desktop {
+
+  @include govuk-media-query($from: "desktop") {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+.moduk-cards__list-item {
+  border-top: 1px solid $govuk-border-colour;
+
+  // We use grid to split the container into column widths, so manage the horizontal spacing with internal margins.
+  margin: 0 govuk-spacing(3);
+  padding: govuk-spacing(1) 0 govuk-spacing(4) 0;
+}
+
+
+.moduk-cards__list-item-wrapper {
+  // This wrapper ensures that the clickable area of the card only covers the area of the card containing text so in a grid of cards there is space above and below each link
+  padding: govuk-spacing(2) govuk-spacing(6) govuk-spacing(2) 0;
+  position: relative;
+}
+
+
+.moduk-cards__sub-heading {
+  margin-bottom: govuk-spacing(2);
+}
+
+
+.moduk-cards__link {
+
+  // Make the entire list item area clickable
+  &:after {
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &:before {
+    border-right: 3px solid govuk-colour("blue");
+    border-top: 3px solid govuk-colour("blue");
+    content: "";
+    height:7px;
+    position: absolute;
+    right: govuk-spacing(1);
+    top: govuk-spacing(3) + 3;
+    width: 7px;
+    transform: rotate(45deg);
+  }
+
+  &:hover {
+    &:before {
+      border-color: $govuk-link-hover-colour;
+    }
+  }
+
+  &:focus {
+    &:before {
+      border-color: $govuk-focus-text-colour;
+    }
+  }
+
+}
+
+
+.moduk-cards__description {
+  margin: 0 govuk-spacing(-6) 0 0;
+}

@@ -1,0 +1,50 @@
+/* -------------------------------- 
+
+Title: Header
+
+-------------------------------- */
+
+.moduk-header__container {
+  border-bottom-color: $govuk-brand-colour;
+}
+
+
+.moduk-header__logo {
+  @include govuk-responsive-margin(2, "bottom");
+  padding-right: govuk-spacing(8);
+
+  @include govuk-media-query ($from: desktop) {
+    float: left;
+    padding-right: $govuk-gutter-half;
+    vertical-align: top;
+    width: 33.33%;
+  }
+
+}
+
+
+.moduk-header__logo-link {
+  display: inline-block; 
+  vertical-align: top;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+}
+
+
+.moduk-header__logo-svg {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+.moduk-header__service-name {
+
+  @include govuk-media-query ($from: desktop) {
+    margin-top: 7px;
+    margin-bottom: 3px;
+  }
+
+}

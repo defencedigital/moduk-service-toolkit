@@ -1,0 +1,107 @@
+/* -------------------------------- 
+
+Title: Do and don’t
+Description: Help users understand more easily what they should and should’nt do.
+
+-------------------------------- */
+
+
+// These colours are from the MoD Brand Guidelines, and at some point need to be moved into an MoD colours Sass file for use everywhere
+$moduk-tick-color:  #00945F;
+$moduk-cross-color: #8A1538;
+
+
+.moduk-do-dont {
+  @include govuk-font(19);
+  background-color: govuk-colour("white");
+  border: 1px solid govuk-colour("mid-grey");
+  margin-bottom: govuk-spacing(7); 
+  margin-top: govuk-spacing(8) + govuk-spacing(1); // Accounts for the label
+  padding: govuk-spacing(5);
+  padding-top: 0;
+  position: relative;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+
+.moduk-do-dont__label {
+  @include govuk-font(24, $weight: bold);
+  background-color: $govuk-brand-colour;
+  color: govuk-colour("white");
+  display: inline-block;
+  margin: 0 0 govuk-spacing(2) -26px; // Extra 1px accounts for the border
+  padding: govuk-spacing(2) govuk-spacing(5);
+  position: relative;
+  top: - govuk-spacing(3);
+}
+
+
+.moduk-do-dont__list {
+  list-style: none;
+  margin-top: 0;
+  padding-left: govuk-spacing(6);
+  position: relative;
+
+  li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  li:last-child {
+    margin: 0;
+  }
+
+}
+
+
+.moduk-do-dont__tick,
+.moduk-do-dont__cross {
+  display: inline-block;
+  position: relative;
+}
+
+
+.moduk-do-dont__tick {
+
+  &:after {
+    border-bottom: 5px solid $moduk-tick-color;
+    border-right: 5px solid $moduk-tick-color;
+    content: "";
+    display: block;
+    height: 15px;
+    left: -25px;
+    margin-left: 60%; 
+    position: absolute;
+    top: -20px;
+    transform: rotate(45deg);
+    width: 7px;
+  }
+
+}
+
+
+.moduk-do-dont__cross {
+
+  &:before, 
+  &:after {
+    background-color: $moduk-cross-color;
+    content: "";
+    height: 20px;
+    left: -23px;
+    position: absolute;
+    top: -16px;
+    width: 5px;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+}
