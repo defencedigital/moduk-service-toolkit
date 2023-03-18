@@ -14,7 +14,7 @@
   "author": "Trevor Saint <hello@trevorsaint.uk> (https://trevorsaint.uk)",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@hmcts/cookie-manager": "^1.0.0",
     "@thedigitalman/eleventy-plugin-toc-a11y": "^2.1.0",
